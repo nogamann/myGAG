@@ -1,0 +1,26 @@
+.btn-circle-lg {
+    width:79px;
+    height:79px;
+    text-align: center;
+    padding:13px 0;
+    font-size:30px;
+    line-height:2.00;
+    border-radius:70px;
+}
+
+.btn:focus{
+    outline:none;
+}
+
+.btn:active:focus{
+    outline:none;
+}
+
+
+body {
+    background: #ffffd1;
+}
+
+.imgDisp{
+    height: 60%;
+}

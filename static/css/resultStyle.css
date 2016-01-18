@@ -1,0 +1,27 @@
+body{
+    background: white;
+}
+
+
+.navbar-default {
+    background-color: #3498db;
+    border-color: transparent;
+}
+
+.result{
+    padding-top: 10%;
+}
+
+.linkBtn{
+    padding-top: 15px;
+    align-self: center;
+    align-content: center;
+}
+
+.notBtn{
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}

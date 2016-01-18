@@ -1,0 +1,12 @@
+# JetBrains IDE Files #
+#######################
+
+.idea
+*.iml
+out
+gen
+*.p
+*.pem
+*.ppk
+# Created by .ignore support plugin (hsz.mobi)
+__pycache__
