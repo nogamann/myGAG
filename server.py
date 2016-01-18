@@ -28,13 +28,13 @@ class initialHandler(tornado.web.RequestHandler):
 class submitHandler(tornado.web.RequestHandler):
     def get(self):
         print("submit handler")
-
         arg = self.get_query_argument("selectedVal")
         likes = arg.split(';')
+        likes = likes[:len(likes)-1]
+        likes = [int(i) for i in likes]
         print(likes)
-
-        # FIND RELEVANT MEMES AND PUT IN RESULT VEC
-        result = ["http://memesvault.com/wp-content/uploads/Funny-Meme-3.jpg", "http://memesvault.com/wp-content/uploads/Funny-Meme-13.jpg"]
+        result = userLikes.sendPredicts(likes)
+        print (result)
         result = json.dumps(result)
         self.finish(result)
         print('sent result')

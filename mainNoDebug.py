@@ -1,9 +1,8 @@
 ##--------------------------imports----------------------
-from FacebookLikesQuery import getLikes
-from usersHashMap import createHashMap
 from findNnearest import findNearestNeighbors
 from HashToArrays import createArr
 from copy import copy, deepcopy
+import numpy as np
 from sklearn.neighbors import NearestNeighbors
 from findIndexList import createIndexList
 import pickle
@@ -13,7 +12,7 @@ import webbrowser
 import json
 import random
 
-graph = facebook.GraphAPI(access_token='1010889892301604|0-CiTXs37lM2gOaoe9kO6eKLppQ', version='2.5')
+# graph = facebook.GraphAPI(access_token='1010889892301604|0-CiTXs37lM2gOaoe9kO6eKLppQ', version='2.5')
 '''
 PostLikeUsers, postIds = getLikes()
 
@@ -43,6 +42,7 @@ pickle.dump(fullUsersHashMap,open("fullUsersHash","wb"))
 
 #creating indexes
 sizeOfTrainingSet = 20
+arr = pickle.load(open ("arr","rb"))
 indexes = createIndexList(arr,sizeOfTrainingSet)
 pickle.dump(indexes,open("indexes","wb"))
 
@@ -78,11 +78,16 @@ def predictLikes(userLikes):
         testLikes[i] = userLikes[counter]
         counter += 1
     newIndexes =[]
-    for num in range(numberOfPosts):
-        if num not in indexes:
-            if (averages[num]>= 0.8):
-                newIndexes.append(num)
-                testLikes[num] = 1
-            else:
-                testLikes[num] = 0
+    filterNum = 0.0
+    while (len(newIndexes)>20 or len(newIndexes)<6):
+        newIndexes = []
+        filterNum += 0.1
+        for num in range(numberOfPosts):
+            if num not in indexes:
+                if (averages[num]>= (1-filterNum)):
+                    newIndexes.append(num)
+                    #testLikes[num] = 1
+                #else:
+                    #testLikes[num] = 0
+    print (filterNum)
     return newIndexes

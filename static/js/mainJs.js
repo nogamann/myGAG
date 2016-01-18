@@ -1,9 +1,9 @@
 $('#submit').click(function()
 {
-    var numOfMemes = 3;
+    var numOfMemes = 20;
     var selectedVal = "";
     for (var i = 1; i < numOfMemes + 1; i++){
-        var selected = $("input[type='radio'][name='"+ i +"']:checked");
+        var selected = $("input[type='radio'][name='button"+ i +"']:checked");
         if (selected.length > 0) {
             selectedVal += selected.val() + ';';
         }
@@ -16,8 +16,11 @@ $('#submit').click(function()
         var curRes;
         for (var i = 0; i < jsonLen; i++){
             curRes = listings[i];
-            inner += "<div class='row mt centered'><div class='col-lg-6 col-lg-offset-3' style='margin-top:0px'><h1 style='margin-top:0px'>meme</h1><img src='"
-            + curRes + "' width='500'></div></div><div class='row'></div>";
+            var img = curRes[0];
+            var title = curRes[1];
+            inner += "<div class='row mt centered'><div class='col-lg-6 col-lg-offset-3' style='margin-top:0px'><h1 style='margin-top:0px'>"
+            + title + "</h1><img src='"
+            + img + "' width='500'></div></div><div class='row'></div>";
            }
         document.getElementById("resultContainer").innerHTML=inner;
     });
