@@ -1,16 +1,18 @@
 ##--------------------------imports----------------------
+# from FacebookLikesQuery import getLikes
+# from usersHashMap import createHashMap
 from findNnearest import findNearestNeighbors
 from HashToArrays import createArr
-from copy import copy, deepcopy
-import numpy as np
-from sklearn.neighbors import NearestNeighbors
-from findIndexList import createIndexList
+# from copy import copy, deepcopy
+# import numpy as np
+# from sklearn.neighbors import NearestNeighbors
+# from findIndexList import createIndexList
 import pickle
 import facebook
-import requests
-import webbrowser
-import json
-import random
+# import requests
+# import webbrowser
+# import json
+# import random
 
 # graph = facebook.GraphAPI(access_token='1010889892301604|0-CiTXs37lM2gOaoe9kO6eKLppQ', version='2.5')
 '''
@@ -78,10 +80,11 @@ def predictLikes(userLikes):
         testLikes[i] = userLikes[counter]
         counter += 1
     newIndexes =[]
+    lastIndexes=[]
     filterNum = 0.0
-    while (len(newIndexes)>20 or len(newIndexes)<6):
-        newIndexes = []
+    while (len(newIndexes)<6):
         filterNum += 0.1
+        newIndexes = []
         for num in range(numberOfPosts):
             if num not in indexes:
                 if (averages[num]>= (1-filterNum)):
@@ -89,5 +92,7 @@ def predictLikes(userLikes):
                     #testLikes[num] = 1
                 #else:
                     #testLikes[num] = 0
-    print (filterNum)
+    if len(newIndexes)>20:
+        newIndexes = newIndexes[:20]
+    print (1-filterNum)
     return newIndexes
