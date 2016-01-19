@@ -43,9 +43,9 @@
             -webkit-transition: all 100ms ease-in;
                -moz-transition: all 100ms ease-in;
                     transition: all 100ms ease-in;
-            -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
-               -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
-                    filter: brightness(1.8) grayscale(1) opacity(.7);
+            -webkit-filter: brightness(1.8) grayscale(1) opacity(.4);
+               -moz-filter: brightness(1.8) grayscale(1) opacity(.4);
+                    filter: brightness(1.8) grayscale(1) opacity(.4);
         }
         .drinkcard-cc:hover{
             -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
@@ -75,8 +75,8 @@
                 <!--<img src="static/img/smile-w.png" width="50">-->
             <!--</div>-->
             <div class="col-lg-6" align="left">
-                <a style="font-family:'roboto'; color:white; font-size: 200%"><b>myGAG</b></a>
-                <a style="font-family:'roboto'; color:white; font-size: 150%">only what makes you laugh</a>
+                <a style="font-family:'roboto'; color:white; font-size: 200%;text-decoration: none;"><b>myGAG</b></a>
+                <a style="font-family:'roboto'; color:white; font-size: 150%;text-decoration: none;">only what makes you laugh</a>
             </div>
         </div>
     </div>
@@ -104,8 +104,9 @@
             + "class='col-lg-3 col-lg-offset-3' align='center' style='margin-top:0px'>"
             + "<input id='yes"+j+"' name='button"+j+"'  type='radio' value='1'/>"
             + "<label class='drinkcard-cc yes' for='yes"+j+"'></label></div><div class='col-lg-3' align='center'>"
-            + "<input  checked='checked' id='no"+j+"' name='button"+j+"' type='radio' value='0'/>"
-            + "<label class='drinkcard-cc no' for='no"+j+"'></label></div></div></form></div>";
+            + "<input   id='no"+j+"' name='button"+j+"' type='radio' value='0'/>"
+            + "<label class='drinkcard-cc no' for='no"+j+"'></label></div></div>"
+            + "<input checked='checked' name='button"+j+"' type='radio' value='0' style='visibility:hidden'/> </form></div>";
            }
         document.getElementById("bottom").innerHTML=inner;
     });
