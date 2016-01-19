@@ -18,7 +18,7 @@ $('#submit').click(function()
             curRes = listings[i];
             var img = curRes[0];
             var title = curRes[1];
-            inner += "<div class='row mt centered'><div class='col-lg-6 col-lg-offset-3' style='margin-top:0px'><h1 style='margin-top:0px'>"
+            inner += "<div class='row mt centered' id='div" + i +"'><div class='col-lg-6 col-lg-offset-3' style='margin-top:0px'><h1 style='margin-top:0px'>"
             + title + "</h1><img src='"
             + img + "' width='500'></div></div><div class='row'></div>";
            }
@@ -36,14 +36,14 @@ $(document).on({
     },
     ajaxStop: function() {
         $body.removeClass("loading");
-
-//        $('html, body').animate({scrollTop:950},1000);
+        $('html, body').animate({scrollTop:18250},1000);
     }
 });
 
 $('#scrollDown').click(function(){
-    $('html, body').animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top
-    }, 'slow');
+            $.scrollSmoothTo($("bottom"));
+//$('html, body').animate({
+//        scrollTop: $( $.attr(this, 'href') ).offset().top
+//    }, 'slow');
     return false;
 });
