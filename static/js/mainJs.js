@@ -36,14 +36,18 @@ $(document).on({
     },
     ajaxStop: function() {
         $body.removeClass("loading");
+
+        if (a ==  1) {
         $('html, body').animate({scrollTop:18250},1000);
+        }
     }
 });
 
-$('#scrollDown').click(function(){
-            $.scrollSmoothTo($("bottom"));
-//$('html, body').animate({
-//        scrollTop: $( $.attr(this, 'href') ).offset().top
-//    }, 'slow');
+$('#submit').click(function(){
+       a = 1;
+        $('html, body').animate({scrollTop:18250},1000);
+
     return false;
 });
+
+var a = 0;

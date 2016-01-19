@@ -94,5 +94,5 @@ def predictLikes(userLikes):
                     #testLikes[num] = 0
     if len(newIndexes)>20:
         newIndexes = newIndexes[:20]
-    print (1-filterNum)
+    # print (1-filterNum)
     return newIndexes
