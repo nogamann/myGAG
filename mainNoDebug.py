@@ -70,10 +70,14 @@ def predictLikes(userLikes):
     averages = [None]*numberOfPosts
     for j in range(numberOfPosts):
         average = 0
+        weight = nearestNumber
         for i in range(nearestNumber):
             neighbor = neighbors[i]
-            average += fullUsersHashMap[str(neighbor[1])][j]
-        averages[j] = (average/nearestNumber)
+            average += fullUsersHashMap[str(neighbor[1])][j]*weight
+            weight -= 1
+        averages[j] = (average/28)
+        #averages[j] = (average/nearestNumber)
+    print(averages)
     testLikes = [None]*numberOfPosts
     counter = 0
     for i in indexes:
@@ -94,5 +98,5 @@ def predictLikes(userLikes):
                     #testLikes[num] = 0
     if len(newIndexes)>20:
         newIndexes = newIndexes[:20]
-    # print (1-filterNum)
+    print (filterNum)
     return newIndexes
