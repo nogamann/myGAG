@@ -18,7 +18,7 @@ $('#submit').click(function()
             curRes = listings[i];
             var img = curRes[0];
             var title = curRes[1];
-            inner += "<div class='row mt centered' id='div" + i +"'><div class='col-lg-6 col-lg-offset-3' style='margin-top:0px'><h1 style='margin-top:0px'>"
+            inner += "<div class='row mt centered' id='div" + i +"'><div class='col-lg-6 col-lg-offset-3' style='margin-top:0px'><h1 align='left' style='margin-top:0px; margin-left:30px; font-size: 120%'>"
             + title + "</h1><img src='"
             + img + "' width='500'></div></div><div class='row'></div>";
            }
@@ -38,7 +38,7 @@ $(document).on({
         $body.removeClass("loading");
 
         if (a ==  1) {
-        $('html, body').animate({scrollTop:18250},1000);
+        $('html, body').animate({scrollTop:17750},1000);
         }
     }
 });
